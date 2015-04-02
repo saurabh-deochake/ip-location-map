@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-from pyipinfodb import pyipinfodb
-
-ip_lookup = pyipinfodb.IPInfo('API_KEY_HERE')
+import urllib
+import json
 
 coord_list = [] # List of tuples containing coordinates as (Longitude, Latitude)
 cache = {} # Dict containing data from IPs that have already been requested
