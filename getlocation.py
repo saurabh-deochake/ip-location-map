@@ -9,7 +9,8 @@ with open('ips.txt','r') as ip_file:
     for ip in ip_file:
         print('Getting location for {}'.format(ip))
         if ip not in cache:
-            ip_data=ip_lookup.get_city(ip)
+            url = 'https://freegeoip.net/json/{}'.format(ip)
+            ip_data = json.loads(urllib.urlopen(url).read())
             cache[ip] = ip_data
         else:
             ip_data = cache[ip]
